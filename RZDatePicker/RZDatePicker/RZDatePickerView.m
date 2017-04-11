@@ -48,6 +48,8 @@ typedef void(^doneBlock)(NSDate *);
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 
 - (IBAction)doneAction:(UIButton *)sender;
 - (IBAction)cancelAction:(UIButton *)sender;
@@ -90,7 +92,6 @@ typedef void(^doneBlock)(NSDate *);
     
     self.buttomView.layer.cornerRadius = 10;
     self.buttomView.layer.masksToBounds = YES;
-    //self.themeColor = [UIColor colorFromHexRGB:@"#f7b639"];
     self.themeColor = RGB(247, 133, 51);
     self.frame=CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     
@@ -114,7 +115,6 @@ typedef void(^doneBlock)(NSDate *);
     
     if (!_scrollToDate) {
         _scrollToDate = self.currentDate ? self.currentDate : [NSDate date];
-        NSLog(@"===%@", self.currentDate);
     }
     
     //循环滚动时需要用到
@@ -167,7 +167,7 @@ typedef void(^doneBlock)(NSDate *);
     }
     for (int i=0; i<nameArr.count; i++) {
         CGFloat labelX = kPickerSize.width/(nameArr.count*2)+18+kPickerSize.width/nameArr.count*i;
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(labelX, self.showYearView.frame.size.height/2-15, 15, 15)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(labelX, self.showYearView.frame.size.height/2 - 7.5, 15, 15)];
         label.text = nameArr[i];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:14];
@@ -603,7 +603,6 @@ typedef void(^doneBlock)(NSDate *);
     _minLimitDate = minLimitDate;
     if ([_scrollToDate compare:self.minLimitDate] == NSOrderedAscending) {
         _scrollToDate = self.minLimitDate;
-        NSLog(@"==min=%@", _scrollToDate);
     }
     [self getNowDate:self.scrollToDate animated:NO];
 }
@@ -612,7 +611,6 @@ typedef void(^doneBlock)(NSDate *);
     _maxLimitDate = maxLimitDate;
     if ([_scrollToDate compare:self.maxLimitDate] == NSOrderedDescending) {
         _scrollToDate = self.maxLimitDate;
-        NSLog(@"==max=%@", _scrollToDate);
     }
     [self getNowDate:self.scrollToDate animated:NO];
 }
@@ -633,19 +631,13 @@ typedef void(^doneBlock)(NSDate *);
 
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setTitle:(NSString *)title {
+    self.titleLabel.text = title;
 }
-*/
 
 - (IBAction)doneAction:(UIButton *)sender {
-    NSLog(@"===%@", _yearArray);
     self.doneBlock([self.scrollToDate dateWithFormatter:_dateFormatter]);
     [self dismiss];
-//    NSLog(@"===y:%@  m:%@  d:%@ hh:%@ mm:%@", )
 }
 
 - (IBAction)cancelAction:(UIButton *)sender {

@@ -21,9 +21,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9Z-af-8KJ" userLabel="TitleView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDW-bn-9f1" userLabel="Cancel">
-                                    <rect key="frame" x="16" y="10" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDW-bn-9f1" userLabel="Cancel">
+                                    <rect key="frame" x="5" y="0.0" width="60" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="p1y-lj-Vo6"/>
+                                    </constraints>
                                     <state key="normal" title="取消">
                                         <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                     </state>
@@ -31,18 +33,35 @@
                                         <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="dKj-P8-tHf"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Js-8e-gVp" userLabel="Sure">
-                                    <rect key="frame" x="329" y="10" width="31" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Js-8e-gVp" userLabel="Sure">
+                                    <rect key="frame" x="310" y="0.0" width="60" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="1MM-aH-Q1k"/>
+                                    </constraints>
                                     <state key="normal" title="确定"/>
                                     <connections>
                                         <action selector="doneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="zuk-FS-KBy"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsq-nP-Sfm">
+                                    <rect key="frame" x="147" y="0.0" width="82" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="0Js-8e-gVp" firstAttribute="top" secondItem="t9Z-af-8KJ" secondAttribute="top" id="1HP-n2-e1Q"/>
+                                <constraint firstAttribute="bottom" secondItem="hDW-bn-9f1" secondAttribute="bottom" id="5Ru-B7-DiM"/>
+                                <constraint firstAttribute="bottom" secondItem="hsq-nP-Sfm" secondAttribute="bottom" id="EWI-Uf-9yG"/>
+                                <constraint firstAttribute="trailing" secondItem="0Js-8e-gVp" secondAttribute="trailing" constant="5" id="IBz-I0-QQp"/>
+                                <constraint firstAttribute="bottom" secondItem="0Js-8e-gVp" secondAttribute="bottom" id="WFZ-2n-l44"/>
+                                <constraint firstItem="hsq-nP-Sfm" firstAttribute="top" secondItem="t9Z-af-8KJ" secondAttribute="top" id="gKP-8c-UzY"/>
+                                <constraint firstItem="hDW-bn-9f1" firstAttribute="top" secondItem="t9Z-af-8KJ" secondAttribute="top" id="mTN-cv-Ske"/>
                                 <constraint firstAttribute="height" constant="50" id="ql2-Md-u7M"/>
+                                <constraint firstItem="hDW-bn-9f1" firstAttribute="leading" secondItem="t9Z-af-8KJ" secondAttribute="leading" constant="5" id="xpB-5L-XYe"/>
+                                <constraint firstItem="hsq-nP-Sfm" firstAttribute="centerX" secondItem="t9Z-af-8KJ" secondAttribute="centerX" id="ziW-xO-5zX"/>
                             </constraints>
                         </view>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohZ-YF-46H" userLabel="Year">
@@ -77,6 +96,7 @@
                 <outlet property="cancelBtn" destination="hDW-bn-9f1" id="tgg-eF-1s3"/>
                 <outlet property="doneBtn" destination="0Js-8e-gVp" id="Rre-ab-Xfc"/>
                 <outlet property="showYearView" destination="ohZ-YF-46H" id="Deo-7E-bNn"/>
+                <outlet property="titleLabel" destination="hsq-nP-Sfm" id="VYC-ya-Bvm"/>
             </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>

@@ -24,6 +24,8 @@ typedef enum{
 @property (nonatomic, retain) NSDate *maxLimitDate;//限制最大时间（没有设置默认2049）
 @property (nonatomic, retain) NSDate *minLimitDate;//限制最小时间（没有设置默认1970）
 
+@property (nonatomic,strong) NSString *title;
+
 -(instancetype)initWithCompleteBlock:(void(^)(NSDate *))completeBlock;
 
 /**
